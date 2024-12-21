@@ -17,7 +17,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '8.0.x'  # или 7.0.x, если у вас .NET 7
+          dotnet-version: '8.0.x'
 
       - name: Build
-        run: dotnet build --configuration Release
+        run: dotnet run --project ItsRandomLife.csproj
