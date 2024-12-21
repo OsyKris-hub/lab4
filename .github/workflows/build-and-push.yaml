@@ -1,4 +1,4 @@
-name: Build & Push Docker Image
+name: Build Project
 
 on:
   push:
@@ -7,14 +7,17 @@ on:
     branches: [ "lab5" ]
 
 jobs:
-  build_and_push:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Set up .NET 8
+      - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '8.0.x'
+          dotnet-version: '8.0.x'  # или 7.0.x, если у вас .NET 7
+
+      - name: Build
+        run: dotnet build --configuration Release
